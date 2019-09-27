@@ -7,8 +7,12 @@ var pg = document.getElementById("playAgainButton")
 var lp = document.getElementById("losePopup")
 var lpb = document.getElementById("retryButton")
 var ls = document.getElementById("loseScore")
-pg.addEventListener("click", startGame)
+var num = document.getElementById("num")
+var timer = ''
 var t = 21
+num.addEventListener("input", function (e) {
+    timer = e.target.value
+})
 var c = 0
 var timeup
 for (var i = 0; i < m.length; i++) {
@@ -21,6 +25,13 @@ lpb.addEventListener("click", function () {
     window.location.href = "./index.html"
 })
 function startGame() {
+    num.value = ""
+    if (timer != '' && parseInt(timer) != 0) {
+        t = parseInt(timer) + 1
+    }
+    else {
+        t = 21
+    }
     setInterval(function () {
         if (t - 1 >= -1) {
             if (t - 1 >= 0) {
@@ -54,7 +65,7 @@ function genpics() {
     var td = document.getElementsByClassName("hole hole" + (k.toString()))
     td[0].classList.add("up")
 
-    var rt = Math.floor(Math.random() * (1000 - 300) + 300) + 300
+    var rt = Math.floor(Math.random() * (1000 - 100) + 100) + 100
     setTimeout(function () {
         td[0].classList.remove("up")
     }, rt)

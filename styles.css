@@ -22,7 +22,13 @@ h1 {
     color: #000;
     margin-left: 10px;
 }
-
+input{
+    height:20px;
+    border:1px solid black;
+    border-radius:20px;
+    outline:none;
+    text-align: center;
+}
 .game {
     width: 600px;
     height: 400px;
